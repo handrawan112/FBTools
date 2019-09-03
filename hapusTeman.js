@@ -5,9 +5,9 @@
 // ==/UserScript==
 "use strict";
 try {
-var identitas="Woa Attack";
+var identitas="Wawan Kaum Urbanis";
 var teman=[
-"Indah"
+"Cholil","Safitri Handayani","Gaurav Singh","Irfan Raditya Pratama","Muhammad Farid Zia","Muhammad Amirul Ihsan","Supra Yetno Don Juan","Ari Anggara","Hamdy Arifin","Ibnu Yahya","Muhammad Alwaali","Joi","Anugrah Sandi","Mahesa Avandie","Muhammad Adji Pasihulisan","Heru Rmdn","Dani Ardianto","Febri Agunawan","Moh Rizky Dani","Daenk Fandi","Raka Adiputra","Puspita Rini","Erza Jullian","Putra","Emeser","Woa Attack","Zafiya Dekaver","Yowes Ozii","Irna Mailiah","Lutfhi Hafizh Arrasuly","Muhammad Adam","Elvis Sonatha","Wdy AF","Ni Wayan Dewi","Imam Habibie","Aldo Ferdiansyah","Dandi Arbani","Vina Mafase","Audina Zee","Rhomad","Ridwan ArRosyid","Ryan","Agung Esiders","Azhis Saputra","Diki Maulana","Rifky Ahmad Mudafi","M Rifqi","Haidar Syafii Munandar","Ayu Kiting","Alwi Yahya","Marissa","Lily","Liza Anwar","William Smith Suparjo","Ajo Zeylamath Vanjofin","Ipang O.R","indah","Arizandro Gustavo","Syahril Romdoni","Wely Setiawan","Ardiansyah Junior","Syaeful Anam","Irsyad ArRosyid","Irma Septiani","Yayang Herera","Ardian Nugroho","Ayu Kiting","Fiqih Sofyan","Lukman Hakim Sadega","Ferdy Yansah","Jamilia Aini Qilby","Bang April","Eno Fauziah","Adit","Supri Yadi","Apriliani Indah","Yeyen Lestari","RizalAmadi","Zull Panjull Atmhosfer Blues","Vhyian","Wijaya Halim","Yuda Pratama","Irma Namira"
           ];
 /*Masukan nama teman di variabel teman*/
 var idNama=[],nama=[];
@@ -29,7 +29,7 @@ function dTeman(){
 function kumpulkanInformasi(){
   try {
     var x=document.getElementsByTagName("a");
-    for(var i=0;i<x.length;i++){ if(x[i].href.indexOf("fref=fr_tab")!=-1&&x[i].className==="cq"){
+    for(var i=0;i<x.length;i++){ if(x[i].href.indexOf("fref=fr_tab")!=-1){
         idNama.push(x[i].href);
         nama.push(x[i].innerText.toUpperCase());
       }
@@ -81,17 +81,15 @@ var x=document.getElementsByTagName("form");
   }
 }
 
-function lanjut(){
-if(document.title===identitas){
-  dTeman();
-  } if(document.URL.indexOf("friends?lst")!=-1){
+function lanjut(){ if(document.URL.indexOf("friends?unit_cursor=")!=-1){
   kumpulkanInformasi();
   cari_teman();
   pilih_teman();
   proses_teman(); if(nama.length===1&&nama[0]==="Lihat Teman Lain"){
     buka(idNama[0]);
   }
-  } if(document.URL.indexOf("fref=fr_tab")!=-1){
+  }
+alert(nama); if(document.URL.indexOf("fref=fr_tab")!=-1){
   bukaUrl("mbasic/more/?owner_id=","Lainnya");
   }
 if(document.URL.indexOf("mbasic/more/?owner_id=")!=-1){ bukaUrl("removefriend.php?friend_id=","Batalkan pertemanan");
@@ -128,10 +126,11 @@ if(document.URL.indexOf("friends?unit_cursor=")!=-1){
 
   if(document.URL.indexOf("mbasic/more/?owner_id=")!=-1){ bukaUrl("removefriend.php?friend_id=","Batalkan pertemanan");
   } if(document.URL.indexOf("removefriend.php?friend_id")!=-1&&document.URL.indexOf("unref=profile_gear")!=-1){
-  hapusTeman();
+ hapusTeman();
   } if(document.URL.indexOf("removefriend.php?friend_id")!=-1&&document.URL.indexOf("removed")!=-1){
-  buka("https://free.facebook.com/aida.salsabila.589?ref_component=mfreebasic_home_header&ref_page=/wap/home.php&refid=8");
+  buka("https://free.facebook.com/wawan.persikmania.3?ref_component=mfreebasic_home_header&ref_page=%2Fwap%2Fhome.php&refid=8");
   }
+
 }
 load();
 }catch(e){
